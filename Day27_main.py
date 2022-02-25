@@ -6,9 +6,9 @@ import tkinter
 def calculate_value():
     calc_val = 0
     if radio_state.get() == 1:
-        calc_val = int(entry.get()) * 1.6
+        calc_val = float(entry.get()) * 1.609
     elif radio_state.get() == 2:
-        calc_val = int(entry.get()) * (9/5) + 32
+        calc_val = float(entry.get()) * (9/5) + 32
     num_dp = spinbox.get()
     calc_val_str = f"{calc_val:.{num_dp}f}"
     label4.config(text=calc_val_str)
