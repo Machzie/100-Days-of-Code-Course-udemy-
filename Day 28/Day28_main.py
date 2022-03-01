@@ -8,9 +8,9 @@ GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
 CHECK_SYMBOL = "✔"
-WORK_MIN = 3
+WORK_MIN = 25
 SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 15
+LONG_BREAK_MIN = 20
 session = 0
 timer = None
 
@@ -59,7 +59,7 @@ def countdown(count):
 
     canvas.itemconfig(timer_text, text=f"{count_min:02d}:{count_sec:02d}")
     if count > 0:
-        timer = window.after(10, countdown, count-1)
+        timer = window.after(1000, countdown, count-1)
     else:
         start_timer()
 
