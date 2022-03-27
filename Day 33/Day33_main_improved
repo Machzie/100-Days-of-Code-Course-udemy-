@@ -1,0 +1,75 @@
+# Day 33 Project - ISS Tracker
+
+import tkinter
+import requests
+from PIL import Image
+import datetime as dt
+
+MY_LAT = 51.507351
+MY_LONG = -0.127758
+now = dt.datetime.now()
+time_now = now.time().strftime("%H:%M:%S")
+date_now = now.date().strftime("%d %b %Y")
+
+
+def convert_lat(lat):
+    """"Converts latitude into map co-ordinate"""
+    x_cor = 180-(lat*2)
+    print(f"x: {x_cor}")
+    return x_cor
+
+
+def convert_long(long):
+    """Converts longitude into map co-ordinate"""
+    y_cor = 360+(long*2)
+    print(f"y: {y_cor}")
+    return y_cor
+
+
+def check_iss(lat, long):
+    """Checks longitude and latitude of ISS against current location and returns True if the ISS is nearby"""
+    if (MY_LAT-5 < lat < MY_LAT+5) and (MY_LONG-5 < long < MY_LONG+5):
+        return True
+    else:
+        return False
+
+
+iss_response = requests.get(url="http://api.open-notify.org/iss-now.json")
+iss_data = iss_response.json()
+
+iss_lat = float(iss_data["iss_position"]["latitude"])
+iss_long = float(iss_data["iss_position"]["longitude"])
+print(iss_lat, iss_long)
+
+window = tkinter.Tk()
+window.title("ISS Tracker")
+
+canvas = tkinter.Canvas(width=715, height=355)
+# map_img = Image.open("./worldmap.png")
+# map_img = map_img.resize((720, 360))
+# map_img.save("worldmapresize.png", "png")
+background_img = tkinter.PhotoImage(file="worldmapresize.png")
+canvas.create_image(360, 180, image=background_img)
+# sat_img = Image.open("./ISS.png")
+# sat_img = sat_img.resize((30, 30))
+# sat_img.save("ISSresize.png", "png")
+ISS_img = tkinter.PhotoImage(file="ISSresize.png")
+canvas.create_image(convert_long(iss_long), convert_lat(iss_lat), image=ISS_img)
+# marker_img = Image.open("./marker.png")
+# marker_img = marker_img.resize((15, 15))
+# marker_img.save("markerresize.png", "png")
+loc_img = tkinter.PhotoImage(file="markerresize.png")
+canvas.create_image(convert_long(MY_LONG), convert_lat(MY_LAT)-7.5, image=loc_img)
+canvas.grid(row=0, column=0, columnspan=2)
+
+current_time = tkinter.Label(text=f"Current Time\n{time_now}\n{date_now}")
+current_time.grid(row=1, column=0, sticky="EW")
+obs_status = tkinter.Label(text="Placeholder")
+obs_status.grid(row=1, column=1, sticky="EW")
+
+if check_iss(iss_lat, iss_long):
+    obs_status.config(text="The ISS is nearby!")
+else:
+    obs_status.config(text="The ISS is not overhead right now.")
+
+window.mainloop()
