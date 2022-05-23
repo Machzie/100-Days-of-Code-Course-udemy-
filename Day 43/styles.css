@@ -34,3 +34,14 @@ ol {
     display: table;
     margin: 0 auto;
 }
+
+/* Class Selector */
+.link:link {
+    color: blue;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: green;
+    text-decoration: underline;
+}
