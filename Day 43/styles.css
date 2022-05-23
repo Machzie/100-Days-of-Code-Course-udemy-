@@ -1,0 +1,36 @@
+body {
+    background-color: #F5F5F5;
+}
+/* Good practise to order properties alphabetically */
+hr {
+    border-color: #F66B0E;
+    border-style: none;
+    border-top-style: dotted;
+    border-width: 10px;
+    height: 0px;
+    width: 6%;
+}
+h1 {
+    color: #205375;
+    text-align: center;
+}
+h3 {
+    color: #205375;
+    text-align: center;
+}
+h5 {
+    color: #112B3C;
+    text-align: center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+ul {
+    display: table;
+    margin: 0 auto;
+}
+ol {
+    display: table;
+    margin: 0 auto;
+}
