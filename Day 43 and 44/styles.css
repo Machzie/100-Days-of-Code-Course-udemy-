@@ -1,0 +1,106 @@
+body {
+    background-color: #F5F5F5;
+    padding-top: 150px;
+}
+/* Good practise to order properties alphabetically */
+.section_hr {
+    border-color: #F66B0E;
+    border-style: none;
+    border-top-style: dotted;
+    border-width: 10px;
+    height: 0px;
+    width: 6%;
+}
+
+h1 {
+    color: #205375;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+}
+h3 {
+    color: #205375;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+h5 {
+    color: #112B3C;
+    text-align: center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+ul {
+    display: table;
+    margin: 0 auto;
+}
+ol {
+    display: table;
+    margin: 0 auto;
+}
+
+form {
+    text-align: center;
+}
+
+/* Class Selector */
+.link:link {
+    color: blue;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+.div_head {
+    background-color: #F5F5F5;
+    margin-bottom: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.div1 {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.div2 {
+    margin: 50px auto 50px auto;
+    width: 40%
+}
+
+.form_text {
+    text-align: center;
+}
+
+.default_img {
+    left: 25%;
+    position: absolute;
+}
+
+.skill_img_left {
+    float: left;
+    margin-right: 30px;
+}
+
+.skill_img_right {
+    float: right;
+    margin-left: 30px;
+}
+
+.matlab_img {
+    float: left;
+    margin-right: 30px;
+    max-height: 64px;
+    max-width: 64px;
+}
